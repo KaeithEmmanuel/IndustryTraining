@@ -1,0 +1,27 @@
+BLABLA
+It’s a car pooling app where drivers can create a ride and passengers who needs a ride can book it
+Personas
+1)driver:
+   	the one who creates a ride 
+2)passengers:
+   	the one who is in need of a ride 
+3)admin:
+              The one who manages the platform and checks for any suspicious acitivity
+4)Customer support:
+The one who manages customers and solves if any conflicts between driver and passenger
+
+User Journeys:
+User journey vary significantly depending on individual needs and goals.
+1)driver journey:
+    first he create a ride with locations from starting point to end point and when a passenger requests to book his ride he accepts the request and he picks up the passenger at locations and he will receiver payment after dropping the passenger at his location
+2)passenger Journey:
+    first he searches the ride form starting location to destination then he chooses a ride from the given results from the search and requests to book.after the driver has accepted his request he will go the starting location and enters the car.after he is dropped at his destination he will pay the amount to the friver 
+3)admin Journey:
+     he will check for any  suspicious activity and cancels it if there is any. He regularly updates the map for best search results
+4)Customer support Journey:
+      when a customer raises a ticket for any issue the customer support will check the ticker and the issue regarding the customer and gets in touch with the customer and resolves the issue
+
+Sucess Metrics:
+->trip completion rate
+->user retention rate
+->cancellation & no show rate

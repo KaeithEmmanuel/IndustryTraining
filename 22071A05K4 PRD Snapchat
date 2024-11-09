@@ -1,0 +1,45 @@
+PRD – Snapchat Application
+Overview
+Snapchat is a multimedia messaging app primarily used for sharing photos and videos with friends. The app allows users to send "Snaps" that disappear after being viewed, as well as share stories that last for 24 hours. Snapchat also includes features such as filters, lenses, chat, voice/video calling, and Discover, which allows users to explore content from publishers and creators. The app focuses on a unique user experience with a combination of ephemeral content, real-time interaction, and augmented reality (AR) features.
+
+Hero Scenarios
+User Login/Signup: The user can log in to Snapchat through their username/email or phone number. New users can sign up with their details to create a profile.
+Snap Creation & Sharing: Users can capture photos or videos (Snaps) using the camera and apply filters, lenses, or stickers before sending them to friends or posting on their Story.
+Chat and Messaging: Users can message friends one-on-one or in groups. Messages can include text, photos, videos, voice messages, and links.
+Friendship and Socializing: Users can add friends by username, phone number, or Snapcode, and can view each other’s Stories.
+Stories and Discover: Users can create Stories to share with all friends or specific groups. Discover allows users to explore content from publishers, creators, and influencers.
+Admin Controls: Snapchat's team can manage user-reported issues, ban or suspend accounts that violate policies, and update the app with new filters, lenses, and features.
+Personas
+User: A person who uses Snapchat to send and receive photos, videos, and chat with friends. This includes both casual users and those who actively post on their Story.
+
+Goals: Connect with friends, share fun and engaging content, discover interesting media, and interact with a social community.
+Behaviors: Sending Snaps, viewing friends’ Snaps and Stories, exploring Discover content, using lenses/filters, chatting with friends, and creating Stories.
+Admin: Snapchat staff responsible for managing platform integrity and ensuring the app’s smooth operation.
+
+Goals: Ensure content moderation, safety, and maintain a positive user experience.
+Behaviors: Responding to user reports, banning/suspending accounts, moderating content, managing updates.
+Publisher/Creator: Content creators or businesses using Snapchat to share media through Discover or sponsored content.
+
+Goals: Engage their audience, create and share content, and grow their follower base.
+Behaviors: Posting Stories, engaging with followers, using ad tools for monetization.
+Key User Stories
+As a user, I can log in to Snapchat using my phone number, email, or social media accounts, so that I can access my profile and friends list.
+As a user, I can take photos or videos (Snaps) and apply various filters, lenses, and stickers to personalize the content.
+As a user, I can send Snaps to friends privately, or share them on my Story for 24 hours so that others can view them.
+As a user, I can chat with friends via text, photos, videos, and voice messages to have a more engaging and real-time interaction.
+As a user, I can view my friends’ Stories and interact with them through messages or reactions.
+As a user, I can browse Discover to see content from media publishers, influencers, and ads.
+As an admin, I can review and respond to user-reported content that violates the platform’s community guidelines.
+As an admin, I can update the app with new features, lenses, filters, and tools to enhance the user experience.
+As an admin, I can ban or suspend users who violate the platform's terms of service, ensuring a safe and respectful environment.
+As a creator or publisher, I can upload content to Discover and create sponsored ads to reach a broader audience.
+Success Metrics
+Customer Satisfaction Score (CSAT): A measure of user satisfaction based on feedback and surveys. Aim for a CSAT score of 85% or higher.
+Daily Active Users (DAU): The number of users who engage with Snapchat on a daily basis. Target a steady increase in DAU as the app adds new features and improves engagement.
+Monthly Active Users (MAU): The number of users who engage with Snapchat at least once a month. Aim for consistent growth in MAU year-over-year.
+Engagement Rate: The percentage of users who interact with Snaps, Stories, and content shared via Discover. Target higher engagement through better personalized content and features.
+Snapchat Stories Views: The average number of views per Story. A higher view count indicates that users are actively engaging with shared content.
+Time Spent on Platform: The average amount of time users spend on Snapchat per session. Aim to increase this metric by introducing more engaging features (e.g., new lenses, games, AR experiences).
+Ad Revenue: Total revenue generated through Snapchat ads, including Discover and sponsored Snaps. Aim to increase ad revenue by offering more targeted advertising options.
+User Retention Rate: The percentage of users who return to Snapchat after a specific time period (e.g., 30 or 60 days). Target a retention rate of 80% or higher after 30 days.
+Snap Completion Rate: Percentage of Snaps created that are sent or shared. Higher completion rates indicate that users are satisfied with the Snap creation process.

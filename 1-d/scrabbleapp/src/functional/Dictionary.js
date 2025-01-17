@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import Trie from './Trie'; 
+import Trie from './Trie';
 import './Dictionary.css';
 
 const Dictionary = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [word, setWord] = useState('');
-    const [suggestions, setSuggestions] = useState([]); // State for suggestions
-    const [trie, setTrie] = useState(null); // Trie instance
-    const [selectedIndex, setSelectedIndex] = useState(0); // For keyboard navigation
+    const [suggestions, setSuggestions] = useState([]);
+    const [trie, setTrie] = useState(null);
+    const [selectedIndex, setSelectedIndex] = useState(0);
 
-    // Fetch the .txt file and insert words into the Trie
     useEffect(() => {
-        fetch('http://localhost:5000/api/words') // Fetch words from the server
+        fetch('http://localhost:5000/api/words')
             .then((response) => response.text())
             .then((data) => {
-                const wordsArray = data.split('\n').map(word => word.trim()); // Removing spaces or newlines
+                const wordsArray = data.split('\n').map(word => word.trim());
                 const trieInstance = new Trie();
-                wordsArray.forEach(word => trieInstance.insert(word)); // Insert words into the Trie
-                setTrie(trieInstance); // Set trie to state for future use
-                setLoading(false); // Update loading state
+                wordsArray.forEach(word => trieInstance.insert(word));
+                setTrie(trieInstance);
+                setLoading(false);
             })
             .catch((err) => {
                 console.error('Error fetching the file:', err);
@@ -28,35 +27,32 @@ const Dictionary = () => {
             });
     }, []);
 
-    // Function to update suggestions based on the prefix typed
     const handleInputChange = (e) => {
         const input = e.target.value;
         setWord(input);
 
         if (input.length > 0 && trie) {
-            const matches = trie.suggest(input); // Get word suggestions based on the prefix
-            setSuggestions(matches); // Update suggestions state
-            setSelectedIndex(0); // Reset selected index when typing
+            const matches = trie.suggest(input);
+            setSuggestions(matches);
+            setSelectedIndex(0);
         } else {
-            setSuggestions([]); // Clear suggestions when the input is empty
+            setSuggestions([]);
         }
     };
 
-    // Function to select a suggestion (either by click or auto-fill)
     const handleSuggestionClick = (suggestion) => {
-        setWord(suggestion); // Auto-fill the input with the selected suggestion
-        setSuggestions([]); // Clear suggestions list
+        setWord(suggestion);
+        setSuggestions([]);
     };
 
-    // Handle keyboard navigation through suggestions
     const handleKeyDown = (e) => {
         if (e.key === 'ArrowDown' && selectedIndex < suggestions.length - 1) {
-            setSelectedIndex(selectedIndex + 1); // Move down the suggestions list
+            setSelectedIndex(selectedIndex + 1);
         } else if (e.key === 'ArrowUp' && selectedIndex > 0) {
-            setSelectedIndex(selectedIndex - 1); // Move up the suggestions list
+            setSelectedIndex(selectedIndex - 1);
         } else if (e.key === 'Enter' && suggestions[selectedIndex]) {
-            setWord(suggestions[selectedIndex]); // Auto-fill the word with the selected suggestion
-            setSuggestions([]); // Clear suggestions list
+            setWord(suggestions[selectedIndex]);
+            setSuggestions([]);
         }
     };
 
@@ -67,10 +63,19 @@ const Dictionary = () => {
         }
         if (trie.search(word)) {
             alert(`The word "${word}" exists in the dictionary.`);
+            setSuggestions([]);
         } else {
             alert(`The word "${word}" does not exist in the dictionary.`);
+            const nearestWords = trie.findNearestWords(word, 2); // Max distance = 2
+            if (nearestWords.length > 0) {
+                setSuggestions(nearestWords.slice(0, 5)); // Show top 5 suggestions
+            } else {
+                setSuggestions([]);
+                alert('No similar words found.');
+            }
         }
     };
+    
 
     return (
         <div className="dictionary-container">
@@ -94,7 +99,7 @@ const Dictionary = () => {
                         <li 
                             key={index} 
                             onClick={() => handleSuggestionClick(suggestion)} 
-                            className={selectedIndex === index ? 'highlighted' : ''} // Highlight selected suggestion
+                            className={selectedIndex === index ? 'highlighted' : ''}
                         >
                             {suggestion}
                         </li>

@@ -57,25 +57,25 @@ const Dictionary = () => {
     };
 
     const handleSearch = () => {
-        if (!word) {
-            alert('Please enter a word to search');
-            return;
-        }
-        if (trie.search(word)) {
-            alert(`The word "${word}" exists in the dictionary.`);
-            setSuggestions([]);
+    if (!word) {
+        alert('Please enter a word to search');
+        return;
+    }
+    if (trie.search(word)) {
+        alert(`The word "${word}" exists in the dictionary.`);
+        setSuggestions([]);
+    } else {
+        alert(`The word "${word}" does not exist in the dictionary.`);
+        const nearestWords = trie.findNearestWords(word, 2); // Max distance = 2
+        if (nearestWords.length > 0) {
+            setSuggestions(nearestWords.slice(0, 5)); // Show top 5 suggestions
         } else {
-            alert(`The word "${word}" does not exist in the dictionary.`);
-            const nearestWords = trie.findNearestWords(word, 2); // Max distance = 2
-            if (nearestWords.length > 0) {
-                setSuggestions(nearestWords.slice(0, 5)); // Show top 5 suggestions
-            } else {
-                setSuggestions([]);
-                alert('No similar words found.');
-            }
+            setSuggestions([]);
+            alert('No similar words found.');
         }
-    };
-    
+    }
+};
+
 
     return (
         <div className="dictionary-container">

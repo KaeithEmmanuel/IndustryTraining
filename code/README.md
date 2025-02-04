@@ -1,4 +1,4 @@
-# Project Name
+# Scrabble
 
 ## Setup and Run Instructions
 

@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
-import Dictionary from './functional/Dictionary';
-import Bot from './functional/Bot';
+import GameSetup from './functional/GameSetup';
+import './functional/Styles.css';
 
 function App() {
   return (
     <div className="App">
-      <Dictionary/>
-      <Bot/>
+      <GameSetup />
     </div>
   );
 }

@@ -1,0 +1,240 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 200px;
+}
+
+/* Board Styles */
+.board-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 2px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.cell {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cell:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+/* Bot Styles */
+.bot-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bot-container h2 {
+    margin-bottom: 20px;
+}
+
+.combinations-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.combinations-list li {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.combinations-list li:hover {
+    background-color: #d0d0d0;
+}
+
+/* Dictionary Styles */
+.dictionary-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dictionary-container h2 {
+    margin-bottom: 20px;
+}
+
+.valid {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.invalid {
+    color: #f44336;
+    font-weight: bold;
+}
+
+.recommendations-container {
+    margin-top: 20px;
+}
+
+.recommendation-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.recommendation-item {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.recommendation-item:hover {
+    background-color: #d0d0d0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cell {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    input[type="text"], input[type="number"] {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .board {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cell {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+    }
+
+    .board {
+        max-width: 300px;
+    }
+}
+
+/* Scores Container */
+.scores-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.scores-container h2, .scores-container h3 {
+    margin: 5px 0;
+}
+
+/* Selected Letters */
+.selected-letters {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.letters-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.letter {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Selected Cell */
+.cell.selected {
+    background-color: #a0d8ef;
+    border: 2px solid #4CAF50;
+}
+.letters-list{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px 0;
+}

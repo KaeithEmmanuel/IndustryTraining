@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Trie from './Trie';
 import './Styles.css';
 
-function Dictionary({ onWordCheck }) {
+function Dictionary({ word, onWordCheck }) {
     const [trie, setTrie] = useState(null);
-    const [word, setWord] = useState('');
     const [isValid, setIsValid] = useState(null);
     const [suggestions, setSuggestions] = useState([]);
 
@@ -20,34 +19,26 @@ function Dictionary({ onWordCheck }) {
             .catch(err => console.error('Error loading dictionary:', err));
     }, []);
 
-    const checkWord = () => {
-        if (trie) {
+    useEffect(() => {
+        if (trie && word) {
             const lowerWord = word.toLowerCase();
             const valid = trie.search(lowerWord);
             setIsValid(valid);
-            let suggestions = trie.findNearestWords(lowerWord, 2);
-            setSuggestions(valid ? [] : suggestions.slice(0, 5)); // Get up to 5 nearest words
-            if (onWordCheck) onWordCheck(lowerWord, valid);
+            let suggestions = valid ? [] : trie.findNearestWords(lowerWord, 5).slice(0, 5); // Get up to 5 nearest words
+            setSuggestions(suggestions);
+            if (onWordCheck) onWordCheck(word, valid, suggestions);
         }
-    };
+    }, [word, trie, onWordCheck]);
 
     return (
         <div className="dictionary-container">
             <h2>Dictionary Checker</h2>
-            <input
-                type="text"
-                value={word}
-                onChange={(e) => setWord(e.target.value)}
-                placeholder="Enter a word"
-            />
-            <button onClick={checkWord}>Check</button>
             {isValid !== null && (
                 <p className={isValid ? "valid" : "invalid"}>
                     {isValid ? "Valid Word ✅" : "Invalid ❌"}
                 </p>
             )}
 
-            {/* Nearest Recommendations */}
             {!isValid && suggestions.length > 0 && (
                 <div className="recommendations-container">
                     <h3>Did you mean?</h3>

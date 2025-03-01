@@ -1,54 +1,84 @@
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    color: #333;
 }
 
 h1, h2, h3 {
-    color: #333;
+    margin: 0;
+    color: #2c3e50;
+}
+
+h1 {
+    font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
+h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
 button {
-    background-color: #4CAF50;
+    background-color: #3498db;
     color: white;
     border: none;
     padding: 10px 20px;
     margin: 5px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #2980b9;
 }
 
-input[type="text"], input[type="number"] {
+input[type="text"], input[type="number"], select {
     padding: 10px;
     margin: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1rem;
     width: 100%;
     max-width: 200px;
 }
 
-/* Board Styles */
-.board-container {
-    text-align: center;
-    background-color: #fff;
+/* Main Container */
+.main-container {
+    width: 100%;
+    max-width: 1200px;
     padding: 20px;
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+}
+
+/* Content Container */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Board Container */
+.board-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .board {
@@ -56,7 +86,9 @@ input[type="text"], input[type="number"] {
     grid-template-columns: repeat(15, 1fr);
     gap: 2px;
     margin: 0 auto;
-    max-width: 600px;
+    background-color: #ecf0f1;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .cell {
@@ -65,9 +97,9 @@ input[type="text"], input[type="number"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ccc;
+    border: 1px solid #bdc3c7;
     background-color: #f9f9f9;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
     color: #333;
     border-radius: 5px;
@@ -79,17 +111,114 @@ input[type="text"], input[type="number"] {
     cursor: pointer;
 }
 
-/* Bot Styles */
-.bot-container {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Controls Container */
+.controls-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.bot-container h2 {
-    margin-bottom: 20px;
+/* Player Letters */
+.player-letters {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.letters-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.letter {
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    min-width: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.letter:hover {
+    background-color: #2980b9;
+}
+
+/* Word Input */
+.word-input {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.coordinate-input, .direction-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.coordinate-input label, .direction-input label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Dictionary Styles */
+.dictionary-container {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.valid {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.invalid {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.recommendations-container {
+    margin-top: 15px;
+}
+
+.recommendation-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.recommendation-item {
+    background-color: #3498db;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.recommendation-item:hover {
+    background-color: #2980b9;
+}
+
+/* Bot Styles */
+.bot-container {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .combinations-list {
@@ -101,61 +230,16 @@ input[type="text"], input[type="number"] {
 }
 
 .combinations-list li {
-    background-color: #e0e0e0;
+    background-color: #3498db;
+    color: white;
     padding: 10px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
 .combinations-list li:hover {
-    background-color: #d0d0d0;
-}
-
-/* Dictionary Styles */
-.dictionary-container {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.dictionary-container h2 {
-    margin-bottom: 20px;
-}
-
-.valid {
-    color: #4CAF50;
-    font-weight: bold;
-}
-
-.invalid {
-    color: #f44336;
-    font-weight: bold;
-}
-
-.recommendations-container {
-    margin-top: 20px;
-}
-
-.recommendation-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.recommendation-item {
-    background-color: #e0e0e0;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.recommendation-item:hover {
-    background-color: #d0d0d0;
+    background-color: #2980b9;
 }
 
 /* Responsive Design */
@@ -163,21 +247,33 @@ input[type="text"], input[type="number"] {
     .cell {
         width: 25px;
         height: 25px;
-        font-size: 14px;
-    }
-
-    button {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-
-    input[type="text"], input[type="number"] {
-        padding: 8px;
-        font-size: 14px;
+        font-size: 0.9rem;
     }
 
     .board {
         max-width: 400px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    input[type="text"], input[type="number"], select {
+        padding: 8px;
+        font-size: 0.9rem;
     }
 }
 
@@ -185,56 +281,10 @@ input[type="text"], input[type="number"] {
     .cell {
         width: 20px;
         height: 20px;
-        font-size: 12px;
+        font-size: 0.8rem;
     }
 
     .board {
         max-width: 300px;
     }
-}
-
-/* Scores Container */
-.scores-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.scores-container h2, .scores-container h3 {
-    margin: 5px 0;
-}
-
-/* Selected Letters */
-.selected-letters {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.letters-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 10px 0;
-}
-
-.letter {
-    background-color: #e0e0e0;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* Selected Cell */
-.cell.selected {
-    background-color: #a0d8ef;
-    border: 2px solid #4CAF50;
-}
-.letters-list{
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin: 10px 0;
 }

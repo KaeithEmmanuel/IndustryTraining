@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Styles.css';
 
 function Bot({ board, playerLetters, updateBoard, onSuggestBestMove }) {
     const BOARD_SIZE = 15;
     const [bestMove, setBestMove] = useState(null);
+    const [combinations, setCombinations] = useState([]); // State to store combinations
+    const [combinationLength, setCombinationLength] = useState(2); // State for combination length input
+    const combinationsListRef = useRef(null); // Ref for auto-scrolling
 
     // Generate all possible combinations of player letters
     const getCombinations = (letters, length, prefix = '', results = new Set()) => {
@@ -15,6 +18,25 @@ function Bot({ board, playerLetters, updateBoard, onSuggestBestMove }) {
             getCombinations([...letters.slice(0, index), ...letters.slice(index + 1)], length, prefix + letter, results);
         });
         return results;
+    };
+
+    // Handler for the "Get Combinations" button
+    const handleGetCombinations = () => {
+        if (!playerLetters || playerLetters.length === 0) {
+            alert('No letters available to generate combinations.');
+            return;
+        }
+        if (combinationLength < 2 || combinationLength > playerLetters.length) {
+            alert(`Combination length must be between 2 and ${playerLetters.length}.`);
+            return;
+        }
+        const combinationsForLength = [...getCombinations(playerLetters, combinationLength)];
+        setCombinations(combinationsForLength); // Store combinations in state
+
+        // Auto-scroll to the combinations list
+        if (combinationsListRef.current) {
+            combinationsListRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
     };
 
     // Find the best move based on the board and player letters
@@ -101,6 +123,27 @@ function Bot({ board, playerLetters, updateBoard, onSuggestBestMove }) {
     return (
         <div className="bot-container">
             <h2>Bot Assistance</h2>
+            <div className="combinations-control">
+                <input
+                    type="number"
+                    value={combinationLength}
+                    onChange={(e) => setCombinationLength(parseInt(e.target.value))}
+                    min="2"
+                    max={playerLetters.length}
+                    placeholder="Combination length"
+                />
+                <button onClick={handleGetCombinations}>Get Combinations</button>
+            </div>
+            {combinations.length > 0 && (
+                <div className="combinations-list-container" ref={combinationsListRef}>
+                    <h3>Combinations:</h3>
+                    <ul className="combinations-list">
+                        {combinations.map((combo, index) => (
+                            <li key={index}>{combo}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
             <button onClick={suggestBestMove}>Suggest Best Move</button>
             {bestMove && (
                 <div className="best-move">

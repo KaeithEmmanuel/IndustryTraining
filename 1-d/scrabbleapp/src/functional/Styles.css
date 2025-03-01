@@ -288,3 +288,75 @@ input[type="text"], input[type="number"], select {
         max-width: 300px;
     }
 }
+
+/* Bot Container */
+.bot-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Combinations Control */
+.combinations-control {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.combinations-control input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 150px;
+}
+
+/* Combinations List */
+.combinations-list-container {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.combinations-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.combinations-list li {
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.combinations-list li:hover {
+    background-color: #2980b9;
+}
+
+/* Best Move */
+.best-move {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.best-move h3 {
+    margin-bottom: 10px;
+}
+
+.best-move p {
+    margin: 5px 0;
+}
